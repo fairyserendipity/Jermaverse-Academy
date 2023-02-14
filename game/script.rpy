@@ -1,9 +1,12 @@
 define y = Character('Y/N')
+define m = Character('Mom')
 define a = Character('???')
 define j = Character('Jerma985')
 define J = Character('Jester985')
-define x = Character('Jex')
+define x = Character('JEX Elbertson')
 define s = Character('SusGuy')
+
+#define gui.text_font = "ArchitectsDaughter.ttf"
 
 transform bounce:
     yoffset 0
@@ -65,6 +68,14 @@ label start1:
             jump start1
 label start2:
     y "Okay! Sleepy time!"
+    y "Ugh... I didn't sleep to well..."
+    m "Honey! Breakfast is ready!"
+    y "COMING!"
+    y "Bleugh... Why do I have to keep eating mom's cooking..."
+    y "{i}I've always gotten sick eating anything she's made.{/i}"
+    y "{i}Maybe it's the fact that she knows that I'm FUCKING LACTOSE INTOLERANT AND KEEPS PUTTING DAIRY IN MY FOOD.{/i}"
+    y "{i}Forget the upset stomatch. Today's my first day at school and I'm so excited!{/i}"
+    y "{i}I've got all my classes right her"
 
 label road1:
     show bg road day
@@ -143,8 +154,19 @@ label school1:
     x "You said you were a second year, right? I don't think I've ever seen your face around here before."
     y "Oh! Uh- I just transferred here so... That might explain it."
     x "Ah... So you're a transfer. I see."
-    x "Excuse my rudeness. My name is JEX Elbertson. But for you hon, you can call me Jex. I'm a third year here at Jermaverse Academy and the president of the rifle. What do you think of it so far?"
+    x "Excuse my rudeness. My name is JEX Elbertson. But for you hon, you can call me Jex."
+    x "I'm a third year at Jermaverse Academy and the president of the Rifle Club. What do you think of it so far?"
     y "Oh! It's really nice! It looks so much better in person too!"
-    x "Jerma, make sure you bring your cute friend with you next time to come by "
+    x "Glad you like it here. Hope you enjoy your stay."
+    x "Oh, and Jerma. Make sure you bring your cute friend with you next time to come by the shooting range. See you around sweetheart."
+    hide jex neutral
+    with easeinleft
+    show jerma neautal at center
+    with easeinleft
+    j "..."
+    j "...Um"
+    j "Hey... Sorry about that. Jex can be a little-"
+    y "Oh no, it's fine! I think Jex is a great guy!"
+    j "...So "
 
 return
