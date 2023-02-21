@@ -167,6 +167,27 @@ label school1:
     j "...Um"
     j "Hey... Sorry about that. Jex can be a little-"
     y "Oh no, it's fine! I think Jex is a great guy!"
-    j "...So "
+    j "...So that's your type, huh..."
+    y "What?"
+    j "Oh- Uh- I said that's how it is!"
+    y "Okay..."
+    y "So, I think Jex said something about you coming by the shooting range. I didn't know you were in the Rifle Club Jerma!"
+    j "Ha. Well, I've always been interested in guns and stuff."
+    y "Maybe I should stop by the shooting range too..."
+    j "What? Don't tell me you're going there to see that jerk!"
+    menu:
+        "What no way! I'm going because you're in it!":
+            jump
+        "Oh. No reason really.":
+            jump
+        "Heck yeah! I want to see Jex in action!":
+            jump 
+label school2:
+    j "Alrighty, so where to first?"
+    menu:
+        "Lockers"
+        "Left road"
+        "Right road"
+    
 
 return
