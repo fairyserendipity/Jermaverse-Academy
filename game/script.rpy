@@ -5,6 +5,7 @@ define j = Character('Jerma985')
 define J = Character('Jester985')
 define x = Character('JEX Elbertson')
 define s = Character('SusGuy')
+define b = Chatacter(' ')
 
 #define gui.text_font = "ArchitectsDaughter.ttf"
 
@@ -133,7 +134,7 @@ label school1:
     y "Wow... So this is Jermaverse Academy. It's so big..." 
     show jerma neutral at bounce, center
     with easeinright
-    j "I heard the school's priciple funded the enter thing! I heard he's incredibly loaded."
+    j "I heard the school's principle funded the enter thing! I heard he's incredibly loaded."
     a "Well, well, well... If it isn't Jerma985. Who's the cutie standing next to you?"
     y "Huh?"
     show jerma neutral at right
@@ -161,10 +162,11 @@ label school1:
     x "Oh, and Jerma. Make sure you bring your cute friend with you next time to come by the shooting range. See you around sweetheart."
     hide jex neutral
     with easeinleft
-    show jerma neautal at center
+    show jerma neutral at center
     with easeinleft
     j "..."
     j "...Um"
+    show jerma neutral at bounce, center
     j "Hey... Sorry about that. Jex can be a little-"
     y "Oh no, it's fine! I think Jex is a great guy!"
     j "...So that's your type, huh..."
@@ -174,20 +176,45 @@ label school1:
     y "So, I think Jex said something about you coming by the shooting range. I didn't know you were in the Rifle Club Jerma!"
     j "Ha. Well, I've always been interested in guns and stuff."
     y "Maybe I should stop by the shooting range too..."
+    show jerma angry at bounce, center
     j "What? Don't tell me you're going there to see that jerk!"
-    menu:
-        "What no way! I'm going because you're in it!":
-            jump
-        "Oh. No reason really.":
-            jump
-        "Heck yeah! I want to see Jex in action!":
-            jump 
-label school2:
-    j "Alrighty, so where to first?"
-    menu:
-        "Lockers"
-        "Left road"
-        "Right road"
-    
+    #menu:
+        #"What no way! I'm going because you're in it!":
+            
+        #"Oh. No reason really.":
+            
+        #"Heck yeah! I want to see Jex in action!"
+label classroom1:
+    y "Woah."
+    y "That guy's got one intense death stare."
+    y "Is he looking at me? Kinda creepy not gonna lie."
+    y "..."
+    y "Damn... I wanted to sit in the back of the classroom near the window like every sterotypical shounen protaginist."
+    y "But this guy took the seat I wanted. *huff*"
+    y "Whatever, I'll just take the seat next to him."
+    y "Let's just hope he doesn't kill me when least expected."
+
+    y "Hm... I wonder if that weirdo is still looking at me."
+    y "Yup. Still looking at me."
+    y "I feel like this guy has been staring at me for hours."
+    y "..."
+    y "Jesus Christ. It's giving me the heeby geebies."
+    y "I should probably leave as quickly as possible so I don't have to deal with this tense atmosphere."
+    b "*zip*"
+    y "Man, he sure is acting sus. Wonder what's up with him."
+
+label road2:
+    y "Wow. School was interesting today."
+    y "*yawn* I'm so tired."
+    b "*russling*"
+    y "{i}Huh.{/i}"
+    y "{i}What the hell was that.{/i}"
+    y "{i}It's so dark though. I doubt anyone is out this late at night.{/i}"
+    y "Hello? Anyone one there?"
+    b "..."
+    b "......"
+    b "........."
+    y "Okay... Probably just my imagination."
+    y "Welp, time to go home and drown myself in soy sauce. It's well desearved."
 
 return
