@@ -4,8 +4,14 @@ define a = Character('???')
 define j = Character('Jerma985')
 define J = Character('Jester985')
 define x = Character('JEX Elbertson')
-define s = Character('SusGuy')
-define b = Chatacter(' ')
+define s = Character('Sus Guy')
+define b = Character(' ')
+define w = Character('Jerma Store Worker')
+
+$ jermabucks = 0
+$ items = []
+$ gifts = []
+default points = 0
 
 #define gui.text_font = "ArchitectsDaughter.ttf"
 
@@ -17,11 +23,13 @@ transform bounce:
     pass
 
 label start:
-    show bg room day
-    y "Wow! What a beautiful morning!"
+    show bg room night
+    y "Phew! I'm pooped!"
     y "I can't wait start my day and go to my first day at school tomorrow!"
+    b "*shuffling*"
+    y "..."
     y "Fuck! I forgot to go to registration. How can I forget?!"
-    y "It's alright, I'll just register online."
+    y "Oh right. I can just register online."
     y "Thank the heavens for technology."
     label name1:
         $ y = renpy.input("Now time to put my name...")
@@ -69,16 +77,20 @@ label start1:
             jump start1
 label start2:
     y "Okay! Sleepy time!"
+    show bg room day
+    with dissolve
     y "Ugh... I didn't sleep to well..."
     m "Honey! Breakfast is ready!"
     y "COMING!"
     y "Bleugh... Why do I have to keep eating mom's cooking..."
     y "{i}I've always gotten sick eating anything she's made.{/i}"
-    y "{i}Maybe it's the fact that she knows that I'm FUCKING LACTOSE INTOLERANT AND KEEPS PUTTING DAIRY IN MY FOOD.{/i}"
+    y "{i}I wish dad was here in the morning instead...{/i}"
     y "{i}Forget the upset stomatch. Today's my first day at school and I'm so excited!{/i}"
-    y "{i}I've got all my classes right her"
+    y "{i}I've got all my classes right here."
+    y "{i}Haha... I know I'm gonna have trouble looking for the right rooms...{/i}"
 
-label road1:
+
+label startroad1:
     show bg road day
     with fade
     y "Wow! What a beautiful day!"
@@ -113,19 +125,18 @@ label road1:
     label morning1_a:
         y "It's been great! I was so excited that I almost shit myself!"
         j "Oh my God! Me too! Except for the shitting part."
-        jump road2
+        jump startroad2
     label morning1_b:
         y "Eh. It's alright I guess."
         j "Oh. Okay then."
-        jump road2
+        jump startroad2
     label morning1_c:
         y "Ugh... It was awful Jerma. I was so tired this morning that I wanted to stay in bed."
         j "Geez. Sorry about that. I know how you feel."
-        jump road2
-
-label road2:
-    j "Anyway, let's get to school quickly!"
-    j "We're gonna be late!"
+        jump startroad2
+    label startroad2:
+        j "Anyway, let's get to school quickly!"
+        j "We're gonna be late!"
     hide jerma neutral
 
 label school1:
@@ -178,18 +189,28 @@ label school1:
     y "Maybe I should stop by the shooting range too..."
     show jerma angry at bounce, center
     j "What? Don't tell me you're going there to see that jerk!"
-    #menu:
-        #"What no way! I'm going because you're in it!":
-            
-        #"Oh. No reason really.":
-            
-        #"Heck yeah! I want to see Jex in action!"
+    menu:
+        "What no way! I'm going because you're in it!":
+            jump jerma1
+        "Oh. No reason really.":
+            jump jerma2
+        "Heck yeah! I want to see Jex in action!":
+            jump jerma3
+    label jerma1:
+        y "No silly! I'm going because you're in it!"
+        j "Oh yeah! Haha!"
+    label jerma1:
+        $ j += 2
+    label jerma2:
+        $ j = 0
+    label jerma3:
+        
 label classroom1:
     y "Woah."
     y "That guy's got one intense death stare."
     y "Is he looking at me? Kinda creepy not gonna lie."
     y "..."
-    y "Damn... I wanted to sit in the back of the classroom near the window like every sterotypical shounen protaginist."
+    y "Damn... I wanted to sit in the back of the classroom near the window like a shounen protaginist."
     y "But this guy took the seat I wanted. *huff*"
     y "Whatever, I'll just take the seat next to him."
     y "Let's just hope he doesn't kill me when least expected."
@@ -216,5 +237,59 @@ label road2:
     b "........."
     y "Okay... Probably just my imagination."
     y "Welp, time to go home and drown myself in soy sauce. It's well desearved."
+
+
+label jerma_store:
+    w "Hi! Welcome to the Jerma Store! If you need any help, let me know!"
+    menu:
+        "Salmon"
+        "Beef"
+        "Pork"
+        "Pasta"
+        "Rice"
+        "Flour"
+        ""
+
+# This section is Sus Guy's Good Ending. If anything, it's too messed up to be even called a good ending lmao. But, it's Sus Guy so *shrug*
+if points >= 75:
+    jump susgood_end
+elif points <= 25:
+    jump susbad_end
+label susgood_end:
+    s "So... What do you say [y]? Should I kill him?"
+    menu:
+        "Yes":
+            jump susgoodend2
+        "Yes":
+            jump susgoodend2
+        "Yes":
+            jump susgoodend2
+        "Yes":
+            jump susgoodend2
+        "Yes":
+            jump susgoodend2
+        "Yes":
+            jump susgoodend2
+        "Yes":
+            jump susgoodend2
+        "Yes":
+            jump susgoodend2
+        "Yes":
+            jump susgoodend2
+        "Yes":
+            jump susgoodend2
+        "Yes":
+            jump susgoodend2
+        "Yes":
+            jump susgoodend2
+    label susgood_end2:
+        j "[y]? What the fuck? You can't be serious!"
+        y "Don't You undersand Jerma?"
+        y "I only need Sus in my life."
+        y "Don't need you anymore."
+        j "[y] please! Let's talk it out! Can we-"
+        b "*shing*"
+        s "Now... Nobody stands in our way, [y]."
+        s "Nobody will EVER stand in the way of our love."
 
 return
