@@ -11,7 +11,16 @@ define w = Character('Jerma Store Worker')
 $ jermabucks = 0
 $ items = []
 $ gifts = []
-default points = 0
+default points = 25
+
+# Code for items and inventory
+init -1 python:
+    import renpy.store as store
+    import renpy.store as renpy
+    from operator import attrgetter 
+    inv_page = 0
+    item = None 
+    
 
 #define gui.text_font = "ArchitectsDaughter.ttf"
 
@@ -67,6 +76,41 @@ label start1:
             $ poss = "theirs"
             $ poss_adj = "their"
             $ ref = "themselves"
+        "It/Its":
+            $ sub = "it"
+            $ con = "its"
+            $ obj = "its"
+            $ poss = ""
+            $ poss_adj = 
+            $ ref = 
+        "Xe/Xem":
+            $ sub = 
+            $ con = 
+            $ obj = 
+            $ poss = 
+            $ poss_adj = 
+            $ ref = 
+        "E/Em":
+            $ sub = 
+            $ con = 
+            $ obj = 
+            $ poss = 
+            $ poss_adj = 
+            $ ref = 
+        "Ze/Hir":
+            $ sub = 
+            $ con = 
+            $ obj = 
+            $ poss = 
+            $ poss_adj = 
+            $ ref = 
+        "Fae/Faer":
+            $ sub = 
+            $ con = 
+            $ obj = 
+            $ poss = 
+            $ poss_adj = 
+            $ ref = 
     label pronoun1:
         "So my pronouns are [sub]/[obj]?"
     menu:
