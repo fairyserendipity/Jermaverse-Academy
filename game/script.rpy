@@ -2,16 +2,26 @@ define y = Character('Y/N')
 define m = Character('Mom')
 define a = Character('???')
 define j = Character('Jerma985')
-define J = Character('Jester985')
 define x = Character('JEX Elbertson')
+define r = Character('Jeremy Elbertson')
+define e = Character('Jester985')
+define f = Character('Malfoil')
+define t = Character('Jeter Jarker')
+define d = Character('Spiderjerm')
 define s = Character('Sus Guy')
-define b = Character(' ')
-define w = Character('Jerma Store Worker')
+define w = Character('Jerma Store Worker') #the worker in Megurine Luka
+define g = Character('Random Ass Girl 1')
+define G = Character('Randome Ass Girl 2')
+
 
 $ jermabucks = 0
 $ items = []
 $ gifts = []
 default points = 25
+$ Dexterity = 0
+$ Intellgance = 0
+$ Constitution = 0
+$ Charisma = 0
 
 # Code for items and inventory
 init -1 python:
@@ -248,7 +258,32 @@ label school1:
     label jerma2:
         $ j = 0
     label jerma3:
-        
+        $ j -= 2
+default jex_act0 = set()
+label shooting_range:
+    show bg 
+label shooting_range1:
+    menu:
+        set jex_act0
+        x "So, any questions beautiful?"
+        "What do you do here?":
+            jump range_do
+        "What time does club start?":
+        "What day do you guys show up?":
+    label range_do:
+        y "What do you guys do in the Archery Club?"
+        x "Pretty much all the basic stuff that involes kyudo. Bow saftey, cleaning, shooting, all that stuff."
+        x "It's pretty simple for beginners to learn too. So anyone is welcome."
+        x "Every time you come by and practice, your constitution and proficiency will increase."
+        y "Oh cool! I'll be sure to think about."
+        x "Take all the time you need. We'll be seeing you future rookie."
+        jex_act0.add("What do you do here?")
+        jump shooting_range1
+
+
+
+
+
 label classroom1:
     y "Woah."
     y "That guy's got one intense death stare."
@@ -265,20 +300,20 @@ label classroom1:
     y "..."
     y "Jesus Christ. It's giving me the heeby geebies."
     y "I should probably leave as quickly as possible so I don't have to deal with this tense atmosphere."
-    b "*zip*"
+    "*zip*"
     y "Man, he sure is acting sus. Wonder what's up with him."
 
 label road2:
     y "Wow. School was interesting today."
     y "*yawn* I'm so tired."
-    b "*russling*"
+    "*russling*"
     y "{i}Huh.{/i}"
     y "{i}What the hell was that.{/i}"
     y "{i}It's so dark though. I doubt anyone is out this late at night.{/i}"
     y "Hello? Anyone one there?"
-    b "..."
-    b "......"
-    b "........."
+    "..."
+    "......"
+    "........."
     y "Okay... Probably just my imagination."
     y "Welp, time to go home and drown myself in soy sauce. It's well desearved."
 
