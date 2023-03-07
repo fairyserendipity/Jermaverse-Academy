@@ -1,3 +1,5 @@
+# Use the format define [variable] = Character('[character name]') to make a new variable for a character.
+# Makes your job easier 
 define y = Character('Y/N')
 define m = Character('Mom')
 define a = Character('???')
@@ -13,26 +15,20 @@ define w = Character('Jerma Store Worker') #the worker in Megurine Luka
 define g = Character('Random Ass Girl 1')
 define G = Character('Randome Ass Girl 2')
 
-
+# Money and inventory
 $ jermabucks = 0
 $ items = []
 $ gifts = []
+
+# Affinity points
 default points = 25
+
+#Stats
+$ Strength = 0
 $ Dexterity = 0
 $ Intellgance = 0
 $ Constitution = 0
 $ Charisma = 0
-
-# Code for items and inventory
-init -1 python:
-    import renpy.store as store
-    import renpy.store as renpy
-    from operator import attrgetter 
-    inv_page = 0
-    item = None 
-    
-
-#define gui.text_font = "ArchitectsDaughter.ttf"
 
 transform bounce:
     yoffset 0
@@ -41,11 +37,13 @@ transform bounce:
     yoffset 0
     pass
 
+# BEGINNING OF ACT 0
+
 label start:
     show bg room night
     y "Phew! I'm pooped!"
     y "I can't wait start my day and go to my first day at school tomorrow!"
-    b "*shuffling*"
+    "*shuffling*"
     y "..."
     y "Fuck! I forgot to go to registration. How can I forget?!"
     y "Oh right. I can just register online."
@@ -88,39 +86,39 @@ label start1:
             $ ref = "themselves"
         "It/Its":
             $ sub = "it"
-            $ con = "its"
+            $ con = "it's"
             $ obj = "its"
-            $ poss = ""
-            $ poss_adj = 
-            $ ref = 
-        "Xe/Xem":
-            $ sub = 
-            $ con = 
-            $ obj = 
-            $ poss = 
-            $ poss_adj = 
-            $ ref = 
-        "E/Em":
-            $ sub = 
-            $ con = 
-            $ obj = 
-            $ poss = 
-            $ poss_adj = 
-            $ ref = 
+            $ poss = "[y]"
+            $ poss_adj = "its"
+            $ ref = "itself"
         "Ze/Hir":
-            $ sub = 
-            $ con = 
-            $ obj = 
-            $ poss = 
-            $ poss_adj = 
-            $ ref = 
+            $ sub = "ze"
+            $ con = "ze's"
+            $ obj = "hir"
+            $ poss = "hirs"
+            $ poss_adj = "hir"
+            $ ref = "hirself"
+        "Xe/Xem":
+            $ sub = "xe"
+            $ con = "xe's"
+            $ obj = "xem"
+            $ poss = "xyrs"
+            $ poss_adj = "xyr"
+            $ ref = "xemselves"
+        "E/Em":
+            $ sub = "e"
+            $ con = "e's"
+            $ obj = "em"
+            $ poss = "eirs"
+            $ poss_adj = "eir"
+            $ ref = "eirself"
         "Fae/Faer":
-            $ sub = 
-            $ con = 
-            $ obj = 
-            $ poss = 
-            $ poss_adj = 
-            $ ref = 
+            $ sub = "fae"
+            $ con = "faer's"
+            $ obj = "faer"
+            $ poss = "faers"
+            $ poss_adj = "faer"
+            $ ref = "faerself"
     label pronoun1:
         "So my pronouns are [sub]/[obj]?"
     menu:
@@ -205,9 +203,9 @@ label school1:
     show jerma neutral at right
     show jex neutral at left
     with easeinleft
-    y "{i}Holy shit! What a hottie!{/i}"
-    y "{i}Oh my God! I can't believe I've seen someone this attractive before!"
-    y "{i}Wha- What do I say...? I'm so nervous...!"
+    y "{i}Woah.{/i}"
+    y "{i}Who the hell is this stuckup guy?"
+    y "{i}He's pretty tall too. I wonder who he is."
     hide jerma neutral
     show jerma angry at bounce, right
     j "Hey! Fuck off Jex! If you even have a thought about flirting with [y] I swear I'll-"
@@ -215,16 +213,17 @@ label school1:
     x "You sure have balls to talk to your senior like that Jerma."
     show jex neutral at bounce
     x "Anyway, what's your name beautiful?"
-    y "Um... Its [y]... I'm a second year student here."
+    y "Uh- It's [y]. I'm a second year student here."
     x "[y]... That's a nice name."
     x "You said you were a second year, right? I don't think I've ever seen your face around here before."
-    y "Oh! Uh- I just transferred here so... That might explain it."
+    y "Oh. I just transferred here so that might explain it."
     x "Ah... So you're a transfer. I see."
     x "Excuse my rudeness. My name is JEX Elbertson. But for you hon, you can call me Jex."
-    x "I'm a third year at Jermaverse Academy and the president of the Rifle Club. What do you think of it so far?"
+    x "I'm a third year at Jermaverse Academy and the president of the Archery Club. The best of the best."
+    x "Anyway, what do you think of the academy so far?"
     y "Oh! It's really nice! It looks so much better in person too!"
     x "Glad you like it here. Hope you enjoy your stay."
-    x "Oh, and Jerma. Make sure you bring your cute friend with you next time to come by the shooting range. See you around sweetheart."
+    x "Oh, and Jerma. Make sure you bring your cute friend with you next time to come by the practice hall. See you around sweetheart."
     hide jex neutral
     with easeinleft
     show jerma neutral at center
@@ -233,56 +232,81 @@ label school1:
     j "...Um"
     show jerma neutral at bounce, center
     j "Hey... Sorry about that. Jex can be a little-"
-    y "Oh no, it's fine! I think Jex is a great guy!"
-    j "...So that's your type, huh..."
-    y "What?"
-    j "Oh- Uh- I said that's how it is!"
-    y "Okay..."
-    y "So, I think Jex said something about you coming by the shooting range. I didn't know you were in the Rifle Club Jerma!"
-    j "Ha. Well, I've always been interested in guns and stuff."
-    y "Maybe I should stop by the shooting range too..."
+    y "Oh no, it's fine. I think Jex is a great guy!"
+    y "{i}What a weirdo...{/i}"
+    y "So, I think Jex said something about you coming by the practice hall. I didn't know you were in the Archery Club Jerma!"
+    j "Ha. No actually. Jex just makes me drop his bows and stuff off. He makes me clean them."
+    y "Wow. That sound tedious."
+    y "Maybe I should stop by the pratice hall too..."
     show jerma angry at bounce, center
     j "What? Don't tell me you're going there to see that jerk!"
     menu:
-        "What no way! I'm going because you're in it!":
+        "What? No way!":
             jump jerma1
         "Oh. No reason really.":
             jump jerma2
         "Heck yeah! I want to see Jex in action!":
             jump jerma3
     label jerma1:
-        y "No silly! I'm going because you're in it!"
-        j "Oh yeah! Haha!"
-    label jerma1:
-        $ j += 2
+        y "No silly! I want to help you clean the bows. That must be tiring for you so."
+        j "Oh. Haha! Thanks but I'm pretty good on my own. But thanks for the offer."
+        y "Whatever you say Jerma haha."
+        y "{i}I wonder if Jex yells at him for being late too.{/i}"
+        jump practice_hall
     label jerma2:
-        $ j = 0
+        y "No reason. Just curious. That's all."
+        j "Oh. Okay. If you say so."
+        y "{i}What the heck's up with him? He's be acting weird since Jex showed up.{/i}"
+        jump practice_hall
     label jerma3:
-        $ j -= 2
-default jex_act0 = set()
-label shooting_range:
-    show bg 
-label shooting_range1:
+        y "Well if he says he's the best of the best, I kinda want to see Jex in action."
+        j "I can be pretty good too..."
+        y "What?"
+        j "Haha! Nothing!"
+        jump practice_hall
+
+label practice_hall:
+    show bg kyudojo day
+    with dissolve
+
+default kyudo_do = False
+default kyudo_time = False
+default kyudo_day = False
+
+label practice_hall2:
+    if kyudo_do and kyudo_time and kyudo_day:
+        jump practice_hall3
     menu:
-        set jex_act0
         x "So, any questions beautiful?"
-        "What do you do here?":
-            jump range_do
-        "What time does club start?":
-        "What day do you guys show up?":
-    label range_do:
+        "What do you do here?" if not kyudo_do:
+            $ kyudo_do = True
+            jump hall_do
+        "What time does club start?" if not kyudo_time:
+            $ kyudo_time = True
+            jump hall_time
+        "What day do you guys show up?" if not kyudo_day:
+            $ kyudo_day = True
+            jump hall_day
+    label hall_do:
         y "What do you guys do in the Archery Club?"
-        x "Pretty much all the basic stuff that involes kyudo. Bow saftey, cleaning, shooting, all that stuff."
+        x "Pretty much all the basic stuff that involes kyudo. Bow saftey, shooting, all that stuff."
         x "It's pretty simple for beginners to learn too. So anyone is welcome."
-        x "Every time you come by and practice, your constitution and proficiency will increase."
+        x "Every time you come by and practice, your constitution and dexterity will increase."
         y "Oh cool! I'll be sure to think about."
         x "Take all the time you need. We'll be seeing you future rookie."
-        jex_act0.add("What do you do here?")
-        jump shooting_range1
+        jump practice_hall2
+    label hall_time:
+        x "After school"
+        jump practice_hall2
+    label hall_day:
+        x "Every Tuesday and Thursday."
+        jump practice_hall2
 
-
-
-
+label practice_hall3:
+    y "Thanks for the talk Jex. I should be heading out now so see you!"
+    x "Of course sweetheart. Come by anytime to see my amazing beauty."
+    y "Uh... Sure..."
+    x "You should probably leave quickly then. Your friend looks looks like he's about to kill someone with those eyes."
 
 label classroom1:
     y "Woah."
@@ -320,14 +344,6 @@ label road2:
 
 label jerma_store:
     w "Hi! Welcome to the Jerma Store! If you need any help, let me know!"
-    menu:
-        "Salmon"
-        "Beef"
-        "Pork"
-        "Pasta"
-        "Rice"
-        "Flour"
-        ""
 
 # This section is Sus Guy's Good Ending. If anything, it's too messed up to be even called a good ending lmao. But, it's Sus Guy so *shrug*
 if points >= 75:
