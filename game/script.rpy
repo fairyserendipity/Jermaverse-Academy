@@ -84,13 +84,6 @@ label start1:
             $ poss = "theirs"
             $ poss_adj = "their"
             $ ref = "themselves"
-        "It/Its":
-            $ sub = "it"
-            $ con = "it's"
-            $ obj = "its"
-            $ poss = "[y]"
-            $ poss_adj = "its"
-            $ ref = "itself"
         "Ze/Hir":
             $ sub = "ze"
             $ con = "ze's"
@@ -130,7 +123,7 @@ label start1:
 label start2:
     y "Okay! Sleepy time!"
     show bg room day
-    with dissolve
+    with fade
     y "Ugh... I didn't sleep to well..."
     m "Honey! Breakfast is ready!"
     y "COMING!"
@@ -252,20 +245,72 @@ label school1:
         j "Oh. Haha! Thanks but I'm pretty good on my own. But thanks for the offer."
         y "Whatever you say Jerma haha."
         y "{i}I wonder if Jex yells at him for being late too.{/i}"
-        jump practice_hall
+        jump entrance
     label jerma2:
         y "No reason. Just curious. That's all."
         j "Oh. Okay. If you say so."
         y "{i}What the heck's up with him? He's be acting weird since Jex showed up.{/i}"
-        jump practice_hall
+        jump entrance
     label jerma3:
         y "Well if he says he's the best of the best, I kinda want to see Jex in action."
         j "I can be pretty good too..."
         y "What?"
         j "Haha! Nothing!"
-        jump practice_hall
+        jump entrance
+default jammed_locker = False
+label entrance:
+    menu:
+        "Go inside the school":
+            if jammed_locker:
+                jump locker
+            else:
+                jump locker_start
+        "Go down the left road":
+            jump left_road
+        "Go down the right road":
+            jump right_road
+label locker_start:
+    show bg locker day
+    with pixellate
+    y "I gotta change my shoes then."
+    y "Jerma? Which ones my locker?"
+    j "Let me see your paper."
+    j "Hmm..."
+    j "I think it's this one. I'll put the code in for you since I'm so nice."
+    y "Aw... Thanks Jerma!"
+    "*rattling*"
+    y "What's wrong? Did you not put the wrong code?"
+    j "Oh no, don't worry. I remember this locker. This one gets jammed all the time."
+    j "You're going to have to punch it to get it open. Like this!"
+    "*punch*"
+    j "Tada!"
+    y "Thank you Jerma! I'll remember to... uh... punch it every time I open it."
+    y "Wait. How did you know this locker is jammed?"
+    j "Oh, because it used to be mine. I complained to the school because I was getting super annoyed with it."
+    j "Oh well, looks like you're stuck with the jammed locker now, [y]! Haha!"
+    y "Bastard..."
+    j "Anyway... Where to next, [y]?"
+    $ jammed_locker = True
+label locker:
+    if locker_start:
+        show locker day
+    else:
+        show locker day
+        with pixellate
+    menu:
+        "Go inside cafeteria":
+            jump cafeteria
+            with pixellate
+        "Go down the left hall":
+            jump left_hall
+        "Go down the right hall":
+            jump right_hall
+        "Go outside the school":
+            jump entrance
 
-label practice_hall:
+
+
+label kyudojo:
     show bg kyudojo day
     with dissolve
 
@@ -273,7 +318,7 @@ default kyudo_do = False
 default kyudo_time = False
 default kyudo_day = False
 
-label practice_hall2:
+label kyudojo2:
     if kyudo_do and kyudo_time and kyudo_day:
         jump practice_hall3
     menu:
@@ -294,15 +339,15 @@ label practice_hall2:
         x "Every time you come by and practice, your constitution and dexterity will increase."
         y "Oh cool! I'll be sure to think about."
         x "Take all the time you need. We'll be seeing you future rookie."
-        jump practice_hall2
+        jump kyudojo2
     label hall_time:
         x "After school"
-        jump practice_hall2
+        jump kyudojo2
     label hall_day:
         x "Every Tuesday and Thursday."
-        jump practice_hall2
+        jump kyudojo2
 
-label practice_hall3:
+label kyudojo3:
     y "Thanks for the talk Jex. I should be heading out now so see you!"
     x "Of course sweetheart. Come by anytime to see my amazing beauty."
     y "Uh... Sure..."
