@@ -150,7 +150,7 @@ label startroad1:
     show jerma neutral
     with dissolve
     y "Jerma! Where were you? I've waiting this entire time!"
-    show jerma neutral at bounce
+    show jerma neutral at bounce, center
     j "Omg, I'm so sorry! I forgot to set the timer on my phone and- and- I totally forgot!"
     y "Jerma, you dunce! Quit being a late Andy and actually show up when I tell you to!"
     y "{i}This is Jerma985. My childhood best friend. We've known each other ever since we were in kindergarten!{/i}"
@@ -242,40 +242,65 @@ label school1:
             jump jerma3
     label jerma1:
         y "No silly! I want to help you clean the bows. That must be tiring for you so."
+        show jerma neutral 
         j "Oh. Haha! Thanks but I'm pretty good on my own. But thanks for the offer."
         y "Whatever you say Jerma haha."
         y "{i}I wonder if Jex yells at him for being late too.{/i}"
-        jump entrance
+        jump school2
     label jerma2:
         y "No reason. Just curious. That's all."
+        show jerma neutral 
         j "Oh. Okay. If you say so."
         y "{i}What the heck's up with him? He's be acting weird since Jex showed up.{/i}"
-        jump entrance
+        jump school2
     label jerma3:
         y "Well if he says he's the best of the best, I kinda want to see Jex in action."
+        show jerma neutral 
         j "I can be pretty good too..."
         y "What?"
         j "Haha! Nothing!"
-        jump entrance
+        jump school2
+    label school2:
+        show jerma neutral 
+        j "Anyway, I was planning on showing you around the school. But, I kinda don't know where to start..."
+        j "So I'll just let you walk around and figure it out yourself!"
+        y "Wow... World's best tour guide..."
+        j "Haha! Don't be like!"
+        j "So, where to first [y]?"
+        menu:
+            "Go inside the school":
+                jump locker_start
+            "Go down the left road":
+                jump left_road
+            "Go down the right road":
+                jump right_road
+
 default jammed_locker = False
 label entrance:
+    hide jerma neutral
+    show bg entrance day
+    with blinds
     menu:
         "Go inside the school":
-            if jammed_locker:
-                jump locker
-            else:
-                jump locker_start
+            jump locker
         "Go down the left road":
             jump left_road
         "Go down the right road":
             jump right_road
+# The jammed locker is used as a plot point by Sus Guy in anyone's route. 
+# Sus will mention that y/n's locker is jammed because of how many times he broke into it.
+# Y/n rightfuly freaks out because noboady knows about the jammed locker except for them and Jerma.
 label locker_start:
-    show bg locker day
-    with pixellate
+    hide jerma neutral
+    show bg lockers day
+    with blinds
     y "I gotta change my shoes then."
+    show jerma neutral
+    with dissolve
     y "Jerma? Which one's my locker?"
     j "Let me see your paper."
     j "Hmm..."
+    show jerma neutral at bounce, center
     j "I think it's this one. I'll put the code in for you since I'm so nice."
     y "Aw... Thanks Jerma!"
     "*rattling*"
@@ -291,16 +316,22 @@ label locker_start:
     y "Bastard..."
     j "Anyway... Where to next, [y]?"
     $ jammed_locker = True
-label locker:
-    if locker_start:
-        show locker day
-    else:
-        show locker day
-        with pixellate
     menu:
         "Go inside cafeteria":
-            jump cafeteria
-            with pixellate
+            jump cafeteria_ugh
+        "Go down the left hall":
+            jump left_hall
+        "Go down the right hall":
+            jump right_hall
+        "Go outside the school":
+            jump entrance
+label locker:
+    hide jerma neutral
+    show bg lockers day
+    with blinds
+    menu:
+        "Go inside cafeteria":
+            jump cafeteria_chef
         "Go down the left hall":
             jump left_hall
         "Go down the right hall":
@@ -308,7 +339,9 @@ label locker:
         "Go outside the school":
             jump entrance
 
-
+label cafeteria_chef:
+    y "The cafeteria's pretty nice."
+    j "That's right! Usually the students here bring their own lunch."
 
 label kyudojo:
     show bg kyudojo day
