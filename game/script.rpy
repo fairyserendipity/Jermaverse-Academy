@@ -14,6 +14,8 @@ define s = Character('Sus Guy')
 define w = Character('Jerma Store Worker') #the worker in Megurine Luka
 define g = Character('Random Ass Girl 1')
 define G = Character('Randome Ass Girl 2')
+define l = Character('Lunch Guy')
+define M = Character('Mr. Mustacheguy')
 
 # Money and inventory
 $ jermabucks = 0
@@ -26,7 +28,7 @@ default points = 25
 #Stats
 $ Strength = 0
 $ Dexterity = 0
-$ Intellgance = 0
+$ Intelligance = 0
 $ Constitution = 0
 $ Charisma = 0
 
@@ -161,10 +163,8 @@ label startroad1:
     menu:
         "It's been great!":
             jump morning1_a
-
         "It's okay.":
             jump morning1_b
-
         "It's been awful...":
             jump morning1_c
     label morning1_a:
@@ -289,7 +289,7 @@ label entrance:
             jump right_road
 # The jammed locker is used as a plot point by Sus Guy in anyone's route. 
 # Sus will mention that y/n's locker is jammed because of how many times he broke into it.
-# Y/n rightfuly freaks out because noboady knows about the jammed locker except for them and Jerma.
+# Y/n rightfully freaks out because noboady knows about the jammed locker except for them and Jerma.
 label locker_start:
     hide jerma neutral
     show bg lockers day
@@ -318,7 +318,7 @@ label locker_start:
     $ jammed_locker = True
     menu:
         "Go inside cafeteria":
-            jump cafeteria_ugh
+            jump cafeteria_chef
         "Go down the left hall":
             jump left_hall
         "Go down the right hall":
@@ -331,7 +331,7 @@ label locker:
     with blinds
     menu:
         "Go inside cafeteria":
-            jump cafeteria_chef
+            jump cafeteria
         "Go down the left hall":
             jump left_hall
         "Go down the right hall":
@@ -340,8 +340,80 @@ label locker:
             jump entrance
 
 label cafeteria_chef:
+    hide jerma neutral
+    show bg cafeteria day
+    with blinds
     y "The cafeteria's pretty nice."
+    show jerma neutral at bounce, center
+    with easeinright
     j "That's right! Usually the students here bring their own lunch."
+    j "But for those who aren't as fortunate to eat their mom's cooking, they come here!"
+    y "Huh. I guess I'm gonna be eating cafeteria food then."
+    l "HEY! What the hell are you kids doing in here?!"
+    l "School hasn't even started yet!"
+    show jerma neutral at bounce, center
+    j "Oops! Sorry lunch guy! We're just looking around. Don't mind us!"
+    y "Who was that guy? Is he the chef?"
+    j "Chef might be an over statement. He's the guy that serves our food."
+    j "Don't worry, he's always this grumpy. You'll get used to it."
+    y "If you say so."
+    j "Where to next, [y]?"
+    menu:
+        "Go to the lockers":
+            jump locker
+        "Go to the left door":
+            jump left_hall
+        "Go to the right door":
+            jump right_hall
+        "Go to the front door":
+            jump track_baseball
+
+label cafeteria:
+    hide jerma neutral
+    show bg cafeteria day
+    with blinds
+    menu:
+        "Go to the lockers":
+            jump locker
+        "Go to the left door":
+            jump left_hall
+        "Go to the right door":
+            jump right_hall
+        "Go to the front door":
+            jump track
+
+label track_baseball:
+    y "Cool track. Looks like it's also baseball field."
+    y "{i}I think I see some students practicin over there.{/i}"
+    "Hey captian! Welcome back! How was your summer?"
+    j "Pretty good! I assume you had a good one too!"
+    y "It's nice to see you're still into baseball, Jerma!"
+    y "But, when the fuck did you become the captian? You never mentioned it at all!"
+    j "Just a few month ago! I guess I forgot to tell you. Haha!"
+    y "Forgetful Andy..."
+    y "So I guess this makes you the club prez then?"
+    j "Yup! Jealous to see your best friend as the baseball captian now?"
+    y "Eh... Not really."
+    y "Oh! Do you mind if I ask you some questions about the Baseball Club!"
+    j "OMG! Are you finally gonna play baseball with me?!"
+    y "Uh... Sure. I'm still not good at sports so I'll think about it."
+
+default base_do = False
+default base_time = False
+default base_day = False
+
+label track:
+    hide jerma neutral
+    show bg track day
+    with blinds
+
+label track_baseball2:
+    if base_do and base_time and base_day:
+        jump track_baseball3
+    menu:
+        j "Ask away, [y]!"
+        "What do you do here?"
+        "When time does club start"
 
 label kyudojo:
     show bg kyudojo day
@@ -353,7 +425,7 @@ default kyudo_day = False
 
 label kyudojo2:
     if kyudo_do and kyudo_time and kyudo_day:
-        jump practice_hall3
+        jump kyudojo3
     menu:
         x "So, any questions, beautiful?"
         "What do you do here?" if not kyudo_do:
@@ -418,6 +490,16 @@ label road2:
     "........."
     y "Okay... Probably just my imagination."
     y "Welp, time to go home and drown myself in soy sauce. It's well deserved."
+
+label classroom_act1:
+    M "And that is exactly why Bang Bang Bang is the best written song from the 2000s."
+    M "HEY! Yeah youuuuu new kid! Are you even listening?!"
+    y "Huh? Oh yeah I am-"
+    M "If so then answer this question."
+    M "What was the first inevation by the Mesopotamians?"
+    y "But, you weren't even-"
+    M "Answer the DAMN QUESTION!"
+    menu:
 
 
 label jerma_store:
