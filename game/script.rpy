@@ -32,6 +32,16 @@ $ Intelligance = 0
 $ Constitution = 0
 $ Charisma = 0
 
+
+label Intellagance_increased:
+    $ Intellagance += 1
+    "Your Intellagance has increased."
+label Constitution_increased
+    $ Constitution += 1
+    "Your Constitution has increased."
+    
+
+
 transform bounce:
     yoffset 0
     easein .1 yoffset -30
@@ -203,7 +213,7 @@ label school1:
     show jerma angry at bounce, right
     j "Hey! Fuck off, Jex! If you even think about flirting with [y] I swear I'll-"
     show jex neutral at bounce
-    x "You sure have balls to talk to your senior like that, Jerma."
+    x "You sure have balls to talk to your senior like that, squirt."
     show jex neutral at bounce
     x "Anyway, what's your name beautiful?"
     y "Uh- It's [y]. I'm a second year student here."
@@ -216,7 +226,7 @@ label school1:
     x "Anyway, what do you think of the academy so far?"
     y "Oh! It's really nice! It looks so much better in person too!"
     x "Glad you like it here. Hope you enjoy your stay."
-    x "Oh, and Jerma. Make sure you bring your cute friend with you next time you come by the practice hall. See you around sweetheart."
+    x "Oh, and kid. Make sure you bring your cute friend with you next time you come by the practice hall. See you around sweetheart."
     hide jex neutral
     with easeinleft
     show jerma neutral at center
@@ -383,8 +393,11 @@ label cafeteria:
             jump track
 
 label track_baseball:
+    hide jerma neutral
+    show bg track day
+    with blinds
     y "Cool track. Looks like it's also baseball field."
-    y "{i}I think I see some students practicin over there.{/i}"
+    y "{i}I think I see some students practicing over there.{/i}"
     "Hey captian! Welcome back! How was your summer?"
     j "Pretty good! I assume you had a good one too!"
     y "It's nice to see you're still into baseball, Jerma!"
@@ -402,22 +415,26 @@ default base_do = False
 default base_time = False
 default base_day = False
 
-label track:
-    hide jerma neutral
-    show bg track day
-    with blinds
-
 label track_baseball2:
     if base_do and base_time and base_day:
         jump track_baseball3
     menu:
         j "Ask away, [y]!"
-        "What do you do here?"
-        "When time does club start"
+        "What do you do here?" if not base_do:
+            $ base_do = True
+            jump ball_do
+        "When time does club start" if not base_time:
+            $ base_time = True
+            jump ball_time
+        "What day do you guys show up?" if not base_day:
+            $ base_day = True
+            jump ball_day
 
-label kyudojo:
-    show bg kyudojo day
-    with dissolve
+label track:
+    hide jerma neutral
+    show bg track day
+    with blinds
+
 
 default kyudo_do = False
 default kyudo_time = False
@@ -458,6 +475,10 @@ label kyudojo3:
     y "Uh... Sure..."
     x "You should probably leave quickly then. Your friend looks like he's about to kill someone with those eyes."
 
+label kyudojo_jex:
+    show bg kyudojo day
+    with dissolve
+
 label classroom1:
     y "Woah."
     y "That guy's got one intense death stare."
@@ -467,7 +488,23 @@ label classroom1:
     y "But this guy took the seat I wanted. *huff*"
     y "Whatever, I'll just take the seat next to him."
     y "Let's just hope he doesn't kill me when I least expect it."
-
+    M "Class. Welcome back from summer vacation or something. I wish you didn't come back."
+    M "Anyway, we have a transfer student or whatever."
+    M "Hey kid, stand up here get it over with."
+    y "Um... Okay."
+    y "Hi! Uh- My name is [y]."
+    y "I like..."
+    menu:
+        "Shopping":
+            "Shopping... for things..."
+            $ hobby = "Shopping"
+        "Video games":
+            "To play... video games..."
+            $ hobby = "Video games"
+        "Cooking":
+            "To cook... uh... food."
+            $ hobby = "Cooking"
+    "My favorite food is "
     y "Hm... I wonder if that weirdo is still looking at me."
     y "Yup. Still looking at me."
     y "I feel like this guy has been staring at me for hours."
@@ -496,78 +533,26 @@ label classroom_act1:
     M "HEY! Yeah youuuuu new kid! Are you even listening?!"
     y "Huh? Oh yeah I am-"
     M "If so then answer this question."
-    M "What was the first inevation by the Mesopotamians?"
+    M "What is the square root of 7?"
     y "But, you weren't even-"
     M "Answer the DAMN QUESTION!"
-    menu:
-
-label jex_training_morning:
-    y "Hnnn..."
-    y "It's so early..."
-    y "{i}Ugh... I barley got any sleep...{/i}"
-    y "..."
-    y "{i}I can't go back to sleep either...{/i}"
-    "*shuffling*"
-    y "{i}I guess I'll go to school early.{/i}"
-    y "{i}Is the practice hall even open during this time?{/i}"
-    y "{i}Better to check than feel sorry."
-    show bg kyudojo morning
-    with fade
-    y "It's so damn foggy. How can you even train in this weather?"
-    y "Wait. Is there someone already here?"
-    y "...!"
-    y "It's... Jex? What's he doing here at this hour?"
-    y "..."
-    y "His form is incredible. No wonder he's the club president."
-    y "I... I can't believe what I'm watching...!"
-    y "He's so focused and serious. I've never seen him like this."
-    x "*pant* Not good enough..."
-    y "Um... Hey Jex!"
-    x "Oh- Hey [y]! W-What are you doing here? School hasn't even started yet."
-    y "Yeah I know. I woke up wayyyy early than I thought so I thought it'll be a good idea to train my archery skills."
-    x "Oh... I that so..."
-    y "{i}Is Jex okay? I've never seen him this stressed before.{/i}"
-    y "Jex. You looked amazing when you were shooting!"
-    y "The form, the contact, I've never seen you this serious before!"
-    x "Hah... So you thinks that's amazing?"
-    x "Well, it's not good enough for me."
-    y "What? How can you get better than that?"
-    x "I have to get better than them."
-    x "If I can't... Then I'm a failure..."
-    y "No... Jex, you're not a failure."
-    x "[y], do you know why I'm so scrict with everyone here except for everyone else?"
-    y "No, why?"
-    x "Because it's the only thing that is holding up my dignity."
-    x "You know how Jeremy is my cousin right?"
-    y "Yeah."
-    x "Our family is notorius for holding high standards."
-    x "I'm already seen as a failure by my behavior and attitude."
-    x "All I've been known for is being a playboy with no care in the world."
-    x "So I started doing archery to help fill in that hole."
-    x "But, all people who wanted to join used it as an excuse to get close to me and not care for the art form."
-    y "And... That's why people kept leaving the Archery Club. Right?"
-    x "Exactly. I was known for being too strict and serious that I didn't fit into everyone's playboy fantasy."
-    x "So, I thought if I was the one to carry our team we might have a chance."
-    x "But... I'm just so far away from my goal."
-    x "No matter how hard I try... I just- I just can't get better."
-    y "Jex... I... I'm so sorry that you feel that way."
-    x "Don't apologize, [y]. It isn't your fault."
-    x "I should be the one that's sorry. I'm sorry for using my charms to get what I want..."
-    x "But... For some reason, you were the only person who didn't imediently fall for me and chose to stay for this long. Why?"
-    y "I like archery, Jex. That's why. You made something that was complicated easy for me to understand."
-    y "Seeing you care so much about it made me want to care too."
-    y "And... I don't want you to tread this path alone. If you don't mind."
-    y "Come on! Let's practice together. Even if we aren't at our best, it's nice to just be here with someone."
-    x "Ha. I guess you're right. Pick up your bow, [y]! We're going to be here until sunrise."
-    y "{i}Jex and I shot arrows until the school bell rang. It was probably the best practice section I've ever had.{/i}"
-    y "{i}I got to learn more about Jex. His goals and his struggles. It made him feel so much more human.{/i}"
-    y "{i}Seeing his vulnerable side, his true self, made me feel so...{/i}"
-    y "..."
-    y "{i}There's no way I'm in love with him haha...{/i}"
-    y "{i}Like he'll ever love me back.{/i}"
-    y "..."
-    y "{i}I just hope he's happy no matter what. Even if the person he loves isn't me.{/i}"
-    y "{i}What am I even thinking of winning over a playboy's heart?{/i}"
+    menu: 
+        "4":
+            M "WRONG! This is why you should pay attention to what I say!"
+            y "OW!"
+            y "[M] threw his marker directly at my head."
+            y "A quiet laughter fills the room. How embarassing..."
+        "3":
+            M "WRONG! This is why you should pay attention to what I say!"
+            y "OW!"
+            y "[M] threw his marker directly at my head."
+            y "A quiet laughter fills the room. How embarassing..."
+        "2.64575131106...":
+            M "Correct. You got lucky this time kid..."
+            "Did [sub] just get that question right without a calculator?"
+            "Damn, I can't even do that {i}with{/i} a calculator."
+            y "{i}Pretty good. If I just keep this up I'll survive.{/i}"
+            call Intellagance_increased
 
 label jerma_store:
     w "Hi! Welcome to the Jerma Store! If you need any help, let me know!"
@@ -577,7 +562,7 @@ if points >= 75:
     jump susgood_end
 elif points <= 25:
     jump susbad_end
-label susgood_end:
+label susbad_end:
     s "So... What do you say [y]? Should I kill him?"
     menu:
         "Yes":
@@ -613,5 +598,3 @@ label susgood_end:
         b "*shing*"
         s "Now... Nobody stands in our way, [y]."
         s "Nobody will EVER stand in the way of our love."
-
-return
