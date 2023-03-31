@@ -38,7 +38,20 @@ transform bounce:
     easeout .1 yoffset 0
     yoffset 0
     pass
-    
+
+label jex_firstday:
+    show bg kyudojo day
+    with fade
+    y "{i}Alright. Today is my first day at the Archery Club!{/i}"
+    y "{i}Wow. There's not that many people here. I wonder why.{/i}"
+    x "Hey sweetheart. Finally made up your mind to see me?"
+    y "Um... No, just wanted to try archery."
+    x "Great! You can admire me from afar so grab your bow over there and start at the edge."
+    y "..."
+    y "Am I going to have to deal with this everyday?"
+    a "[y]? Is that you?"
+    y "Omg! Miku! You're in this club"
+
 label start:
     show bg room night
     with fade
@@ -63,10 +76,10 @@ label start:
     y "He's so focused and serious. I've never seen him like this."
     y "I could probably watch for hours if he doesn't notice me."
     x "*pant* Not good enough..."
-    y "Um... Hey Jex!"
+    y "Um. Hey Jex!"
     x "Oh- Hey [y]! W-What are you doing here? School hasn't even started yet."
     y "Yeah I know. I woke up wayyyy early than I thought so I thought it'll be a good idea to train my archery skills."
-    x "Oh... I that so..."
+    x "Oh. I that so."
     y "{i}Is Jex okay? I've never seen him this stressed before.{/i}"
     y "Jex. You looked amazing when you were shooting!"
     y "The form, the contact, I've never seen you this serious before!"
@@ -78,14 +91,14 @@ label start:
     y "No... Jex, you're not a failure."
     x "[y], do you know why I'm so scrict with everyone here except for everyone else?"
     x "Because it's the only thing that is holding up my dignity."
-    x "You know how Jeremy is my cousin right?"
+    x "You know how Jeremy is my cousin?"
     x "Our family is notorius for holding high standards."
     x "I'm already seen as a failure by my behavior and attitude."
     x "All I've been known for is being a playboy with no care in the world."
     x "So I started doing archery to help fill in that hole."
     x "But, all people who wanted to join used it as an excuse to get close to me and not care for the art form."
     y "And... That's why people kept leaving the Archery Club. Right?"
-    x "Exactly. I was known for being too strict and serious that I didn't fit into everyone's playboy fantasy."
+    x "Exactly. I was known for being too strict and serious that I didn't fit into everyone's fantasy."
     x "So, I thought if I was the one to carry our team we might have a chance."
     x "But... I'm just so far away from my goal."
     x "No matter how hard I try... I just- I just can't get better."
@@ -150,5 +163,4 @@ label jex_valentines:
     y "Haha! Yeah, you're right."
     y "Think of it as a friend to a friend."
     x "Yeah sure. I'll see you later then [y]."
-
-
+    y "Hehe~ He took it."
