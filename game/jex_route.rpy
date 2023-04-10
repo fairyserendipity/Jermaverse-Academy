@@ -137,6 +137,7 @@ label jex_valentines:
     "Aw come on! You gotta pick your favorite!"
     "Yeah Jex! Which one do like best."
     "*giggling*"
+    y "..."
     y "I think I'll just leave then."
     y "Forget it. Why even try?"
     a "WAIT!!!"
@@ -164,3 +165,19 @@ label jex_valentines:
     y "Think of it as a friend to a friend."
     x "Yeah sure. I'll see you later then [y]."
     y "Hehe~ He took it."
+
+label jex_badend:
+    y "Jex! Wait!"
+    x "[y]. I told you to leave me alone."
+    y "I know but you have to hear me out for once."
+    x "Here you out? Do you know how many times I tried to hear you out and it ended in disaster?"
+    x "I can't believe I countinued to trust you!"
+    y "Jex please... It doesn't have to be like this."
+    x "Well, it wouldn't had to if you tried!"
+    y "But I did try, I swear!"
+    x "Well you didn't try hard enough."
+    x "How hard is it to hold a bow and shoot an arrow?"
+    y "Uh pretty hard actually."
+    x "What?"
+    y "I mean uh-"
+    
