@@ -101,3 +101,24 @@ label jester_h:
     y "Abviousley I couldn't tell Jester I liked him."
     y "If I was gonna share a secret, I was better off sharing someone elses than my own."
     y "The last thing I want is to ruin is my friendship with Jester and Jerma at the same time.."
+
+label jester_prom:
+    "In which I am offering myself to you."
+    "!!!"
+    "Jester... You're... offering me your flute?"
+    "Yes. This flute has always been with me since birth. It represent me as a person so much that I consider it to be a part of me."
+    "And... I want you to have it."
+    "But... Your flute means so much to you."
+    "Is it really okay?"
+    "Of course! After all, I want to show you my true self this time. No more faking!"
+    "Kinda ironic coming from an actor."
+    "After all I can always just buy a new one."
+    "Ugh... It's kinda sticky."
+    "Where has this flute been?"
+    "Teehee! It's a secret!"
+    "Motherfucker! I thought we promised to not keep secrets!"
+    "Hehe! If you really think its too much than you can just throw it in the washer!"
+    "But, wouldn't it break?"
+    "Nah! It's pretty surdy. It can take way harder hits and still be intack."
+
+    
