@@ -400,14 +400,14 @@ label track_baseball:
     y "{i}I think I see some students practicing over there.{/i}"
     "Hey captian! Welcome back! How was your summer?"
     j "Pretty good! I assume you had a good one too!"
-    y "It's nice to see you're still into baseball, Jerma!"
-    y "But, when the fuck did you become the captian? You never mentioned it at all!"
+    y "It's nice to see you're still into baseball, Jerma."
+    y "But, when the fuck did you become the captian? You never mentioned it at all."
     j "Just a few month ago! I guess I forgot to tell you. Haha!"
     y "Forgetful Andy..."
     y "So I guess this makes you the club prez then?"
     j "Yup! Jealous to see your best friend as the baseball captian now?"
     y "Eh... Not really."
-    y "Oh! Do you mind if I ask you some questions about the Baseball Club!"
+    y "Oh. Do you mind if I ask you some questions about the Baseball Club!"
     j "OMG! Are you finally gonna play baseball with me?!"
     y "Uh... Sure. I'm still not good at sports so I'll think about it."
 
@@ -556,6 +556,40 @@ label classroom_act1:
 
 label jerma_store:
     w "Hi! Welcome to the Jerma Store! If you need any help, let me know!"
+
+label home_stalker:
+    y "Phew! I'm finally home. I'm so tired..."
+    "*grumble*"
+    y "And hungry too... haha..."
+    y "I'm just going to fix something simple."
+    "*flick*"
+    y "W-what the fuck?"
+    y "W-where did all of this food come from?"
+    y "But, mom isn't home yet. How?"
+    y "Welcome home. You looked hungry so I made you something. Enjoy."
+    y "H-how did someone get into my house. I swear I locked the door when I left."
+    y "Was is Jerma? No... He would've texted me about entering my house."
+    y "..."
+    y "What do I do with all of this food?"
+    menu:
+        "Eat it":
+            jump eat_food
+        "Don't eat it":
+            jump dont_food
+label eat_food:
+    y "..."
+    y "It looks better than anything I would've made."
+    y "It'll be a shame for it to go to waste."
+    y "I managed to finish all of the food. It tasted really good too."
+    y "Whoever this stalker is... they're a really good cook."
+    y "What even am I saying?! I shouldn't be relying on my stalker to cook for me!"
+    y "I've really gone insane."
+
+label dont_food:
+    y "Hell no! I am not going to eat this!"
+    y "What if it's drugged or poisoned."
+    y "I swear I'm going to find who this crazy psycho is."
+    y "Piece of shit..."
 
 # This section is Sus Guy's Good Ending. If anything, it's too messed up to be even called a good ending lmao. But, it's Sus Guy so *shrug*
 if points >= 75:
