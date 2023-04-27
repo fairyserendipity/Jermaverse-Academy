@@ -32,15 +32,21 @@ $ Intelligance = 0
 $ Constitution = 0
 $ Charisma = 0
 
-
-label Intellagance_increased:
+label Strength_increased:
+    $ Strength += 1
+    "Your Strength has increased."
+label Dexterity_increased:
+    $ Dexterity += 1
+    "Your Dexterity has increased."
+label Intelligance_increased:
     $ Intellagance += 1
     "Your Intellagance has increased."
 label Constitution_increased
     $ Constitution += 1
     "Your Constitution has increased."
-    
-
+label Charisma_increased
+    $ Charisma += 1
+    "Your Charisma has increased."
 
 transform bounce:
     yoffset 0
@@ -557,7 +563,7 @@ label classroom_act1:
 label jerma_store:
     w "Hi! Welcome to the Jerma Store! If you need any help, let me know!"
 
-label home_stalker:
+label home_stalkerfood:
     y "Phew! I'm finally home. I'm so tired..."
     "*grumble*"
     y "And hungry too... haha..."
@@ -590,6 +596,17 @@ label dont_food:
     y "What if it's drugged or poisoned."
     y "I swear I'm going to find who this crazy psycho is."
     y "Piece of shit..."
+
+label sus_home:
+    "*flick*"
+    y *sigh*
+    y "I shouldn't be getting used to this but..."
+    y "I'm not sure if I'm allowed to enjoy this. This feels so wrong."
+    y "But, I guess I'm lucky that my stalker takes care of me."
+    "*flick*"
+    y "Thanks for making my bed too..."
+    y "..."
+    y "Good night where ever you are."
 
 # This section is Sus Guy's Good Ending. If anything, it's too messed up to be even called a good ending lmao. But, it's Sus Guy so *shrug*
 if points >= 75:
