@@ -476,10 +476,10 @@ label kyudojo2:
         jump kyudojo2
 
 label kyudojo3:
-    y "Thanks for the talk Jex. I should be heading out now so see you!"
+    y "Thanks for the talk Jex. I should be heading out now so see you later!"
     x "Of course sweetheart. Come by anytime to see my amazing beauty."
     y "Uh... Sure..."
-    x "You should probably leave quickly then. Your friend looks like he's about to kill someone with those eyes."
+    x "You should probably leave quickly then. Your friend looks like he's about to kill someone."
 
 label kyudojo_jex:
     show bg kyudojo day
@@ -510,7 +510,14 @@ label classroom1:
         "Cooking":
             "To cook... uh... food."
             $ hobby = "Cooking"
-    "My favorite food is "
+    y "My favorite food is..."
+    menu:
+        "Chocolate":
+            $ food = "Chocolate"
+        "Chicken":
+            $ food = "Chicken"
+        "Cheese":
+            $ food = "Cheese"
     y "Hm... I wonder if that weirdo is still looking at me."
     y "Yup. Still looking at me."
     y "I feel like this guy has been staring at me for hours."
@@ -599,7 +606,7 @@ label dont_food:
 
 label sus_home:
     "*flick*"
-    y *sigh*
+    y "*sigh*"
     y "I shouldn't be getting used to this but..."
     y "I'm not sure if I'm allowed to enjoy this. This feels so wrong."
     y "But, I guess I'm lucky that my stalker takes care of me."
